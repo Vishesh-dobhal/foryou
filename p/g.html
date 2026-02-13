@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beautiful Prachi 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fae8ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .heart {
+            color: #ff4757;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .message-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.15);
+        }
+
+        .photo-frame {
+            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== ROSE ANIMATIONS ===== */
+        .rose {
+            background: linear-gradient(to bottom, #ff5e7d, #ff2e63);
+            width: 40px;
+            height: 60px;
+            border-radius: 50% 50% 0 0;
+            position: relative;
+            transform: rotate(45deg);
+        }
+
+        .rose:before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to bottom, #ff5e7d, #ff2e63);
+            border-radius: 50%;
+            top: -20px;
+            left: 0;
+        }
+
+        .rose:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 80px;
+            background: #2d3436;
+            bottom: -40px;
+            left: 15px;
+            border-radius: 5px;
+        }
+
+        .petal {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: rgba(255, 94, 125, 0.7);
+            border-radius: 50%;
+            animation: petal-fall linear forwards;
+            z-index: 9999;
+        }
+
+        @keyframes petal-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffdd59;
+            animation: firework-explode 1.5s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes firework-explode {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* ===== LOVE LETTER STYLES ===== */
+        .love-letter {
+            perspective: 1500px;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .love-letter-front,
+        .love-letter-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .love-letter-front {
+            transform: rotateY(0deg);
+            z-index: 2;
+        }
+
+        .love-letter-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        .love-letter.open {
+            transform: rotateY(-180deg);
+        }
+
+        .love-letter:not(.open):hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .love-letter.open:hover {
+            transform: rotateY(-180deg) translateY(-5px) scale(1.02);
+        }
+
+        .secret-message {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .secret-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PHOTO GALLERY ===== */
+        .photo-gallery {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        /* ===== CHILDHOOD SLIDER ===== */
+        .childhood-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.2);
+            background: white;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .slide-image-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 10px;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .swiper-slide:hover img {
+            transform: scale(1.03);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+            background: rgba(236, 72, 153, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(236, 72, 153, 0.9);
+            transform: scale(1.1);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px 15px 15px;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .slide-caption h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .swiper-slide:hover .slide-caption {
+            padding-bottom: 20px;
+        }
+
+        .nostalgia-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .memory-effect {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #ec4899;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #ec4899, #f472b6, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right,
+                    transparent 20%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    transparent 80%);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+
+        /* ===== NEW FEATURE STYLES ===== */
+        .reason-item {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #ec4899;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(236, 72, 153, 0.2);
+            border-radius: 50%;
+            top: -10px;
+            left: -10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .gift-box {
+            transition: all 0.3s ease;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .gift-box.open {
+            animation: openGift 0.5s ease forwards;
+        }
+
+        @keyframes openGift {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: floatHeart 3s ease-in forwards;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .love-meter {
+            height: 30px;
+            background: linear-gradient(90deg, #fbc2c2, #ff5e7d, #ff2e63);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-meter::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        .custom-cursor {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ff4757;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .custom-cursor::after {
+            content: '❤️';
+            position: absolute;
+            font-size: 16px;
+            top: -20px;
+            left: -10px;
+        }
+
+        .daily-note {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #ff4757;
+            z-index: 9999;
+            animation: slideInRight 0.5s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .time-message {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #ff4757;
+            z-index: 9999;
+            animation: slideInLeft 0.5s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .cuddle-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff5e7d, #ff2e63);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 46, 99, 0.4);
+            transition: all 0.3s ease;
+            z-index: 9998;
+            border: none;
+            font-size: 24px;
+        }
+
+        .cuddle-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(255, 46, 99, 0.6);
+        }
+
+        .cuddle-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 768px) {
+            .memory-effect {
+                top: 15px;
+                right: 15px;
+                padding: 8px 15px;
+                font-size: 1rem;
+                z-index: 3;
+            }
+
+            .childhood-slider {
+                height: 400px;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 40px;
+                height: 40px;
+            }
+
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: 1.2rem;
+            }
+
+            .slide-caption {
+                padding: 15px 10px 10px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.5rem;
+            }
+
+            .countdown-box {
+                min-width: 75px;
+                padding: 12px;
+            }
+
+            #days,
+            #hours,
+            #minutes,
+            #seconds {
+                font-size: 1.8rem;
+            }
+
+            #countdownMessage p {
+                font-size: 1rem;
+            }
+
+            .time-message {
+                top: 80px;
+                left: 10px;
+                max-width: 250px;
+                font-size: 0.9rem;
+            }
+
+            .daily-note {
+                bottom: 120px;
+                right: 10px;
+                max-width: 250px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .memory-effect {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            .childhood-slider {
+                height: 350px;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 35px;
+                height: 35px;
+            }
+
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: 1rem;
+            }
+
+            .slide-caption {
+                padding: 12px 8px 8px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.3rem;
+            }
+
+            .countdown-box {
+                min-width: 65px;
+                padding: 10px;
+            }
+
+            #days,
+            #hours,
+            #minutes,
+            #seconds {
+                font-size: 1.5rem;
+            }
+
+            .countdown-box div:last-child {
+                font-size: 0.8rem;
+            }
+
+            .time-message {
+                top: 70px;
+                left: 5px;
+                max-width: 200px;
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+
+            .daily-note {
+                bottom: 100px;
+                right: 5px;
+                max-width: 200px;
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+
+            .cuddle-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 80px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .memory-effect {
+                top: 8px;
+                right: 8px;
+                padding: 5px 10px;
+                font-size: 0.8rem;
+                max-width: 130px;
+            }
+
+            .childhood-slider {
+                height: 300px;
+            }
+
+            .time-message {
+                max-width: 160px;
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+
+            .daily-note {
+                max-width: 160px;
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+        }
+
+        .anniversary-sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: gold;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .celebration-heart {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes sparkle-fall {
+            0% {
+                transform: translateY(-20px) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heart-float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+    <!-- Background elements -->
+    <div id="petals-container" class="fixed inset-0 pointer-events-none z-0"></div>
+    <div id="fireworks-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Custom Cursor (Desktop only) -->
+    <div class="custom-cursor hidden md:block" id="customCursor"></div>
+
+    <!-- Cuddle Request Button -->
+    <button class="cuddle-btn" id="cuddleRequest" title="Need a cuddle?">
+        <i class="fas fa-hands-praying"></i>
+    </button>
+
+    <!-- Main container -->
+    <div class="relative z-10 w-full max-w-6xl">
+        <!-- Header -->
+        <header class="text-center mb-8 md:mb-12 shine-effect">
+            <h1 class="dancing-font text-4xl md:text-6xl lg:text-7xl mb-4 gradient-text">
+                For My Beautiful <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-600">Prachi</span>
+            </h1>
+            <p class="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto">
+                A special creation just for you <i class="fas fa-heart heart ml-2"></i>
+            </p>
+        </header>
+
+        <!-- Photo Section -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-camera-retro mr-3 text-pink-500"></i>Our Special Moments
+            </h2>
+
+            <div class="photo-gallery mb-8">
+                <div class="photo-item h-64 md:h-80" id="photo1">
+                    <img src="https://image2url.com/r2/default/images/1770280295955-e566cb01-b0ea-486c-88ea-d52820dd114d.jpeg"
+                        alt="My beautiful Prachi" class="photo-frame"
+                        onerror="this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80'">
+                    <div class="photo-overlay">
+                        <h3 class="dancing-font text-2xl">The Day I Never Forgot</h3>
+                        <p class="text-sm mt-1">This picture with you is my treasure</p>
+                    </div>
+                </div>
+
+                <div class="photo-item h-64 md:h-80" id="photo2">
+                    <img src="https://image2url.com/r2/default/images/1770291857377-c5776844-1f23-4a22-a272-7bd242c36afb.jpeg"
+                        alt="My favorite photo of Prachi" class="photo-frame"
+                        onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80'">
+                    <div class="photo-overlay">
+                        <h3 class="dancing-font text-2xl">My Favorite Photo</h3>
+                        <p class="text-sm mt-1">This smile brightens my world</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-gray-600 italic">
+                    "These moments with you are the most precious memories I hold close to my heart."
+                </p>
+            </div>
+        </div>
+
+        <!-- My FAVR8 Photos -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-camera-retro mr-3 text-pink-500"></i>My FAVR8 Photos OF Yours
+            </h2>
+
+            <div class="photo-gallery mb-8">
+                <div class="photo-item h-64 md:h-80" id="photo3">
+                    <img src="https://image2url.com/r2/default/images/1770292062764-a8a7dcc8-1a6e-47ff-90ae-a565419ef13e.jpeg"
+                        alt="My beautiful Prachi" class="photo-frame"
+                        onerror="this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80'">
+                    <div class="photo-overlay">
+                        <h3 class="dancing-font text-2xl">My Beautiful Prachi</h3>
+                        <p class="text-sm mt-1">U look CUTEEEEE ^_^</p>
+                    </div>
+                </div>
+
+                <div class="photo-item h-64 md:h-80" id="photo4">
+                    <img src="https://image2url.com/r2/default/images/1770292351879-dccb190c-cffa-4196-b839-490fd6a79d78.jpeg"
+                        alt="My favorite photo of Prachi" class="photo-frame"
+                        onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80'">
+                    <div class="photo-overlay">
+                        <h3 class="dancing-font text-2xl">My Favorite Eyes</h3>
+                        <p class="text-sm mt-1">Your Eyes = My Favorite View</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-gray-600 italic">
+                    "These moments with you are the most precious memories I hold close to my heart."
+                </p>
+            </div>
+        </div>
+
+        <!-- Childhood Photo Slider Section -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-baby mr-3 text-pink-500"></i>Your Precious Childhood Memories
+            </h2>
+
+            <div class="childhood-slider mb-8">
+                <div class="nostalgia-overlay"></div>
+                <div class="memory-effect">Precious Memories 💕</div>
+
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="slide-image-container">
+                                <img src="https://image2url.com/r2/default/images/1770410369157-93da3562-f7a5-4d85-a3a1-8bf926ef8441.jpeg"
+                                    alt="Prachi's childhood memory 1">
+                            </div>
+                            <div class="slide-caption">
+                                <h3>Little Angel</h3>
+                                <p>Even as a child, your innocence captivated everyone's heart</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-image-container">
+                                <img src="https://image2url.com/r2/default/images/1770410395441-eafa6080-c7ba-4b4e-9416-aeb7d83169e2.jpeg"
+                                    alt="Prachi's childhood memory 2">
+                            </div>
+                            <div class="slide-caption">
+                                <h3>Sweet Smile</h3>
+                                <p>That beautiful smile that still lights up my world</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-image-container">
+                                <img src="https://image2url.com/r2/default/images/1770410410446-1c252791-cb0e-4fd6-87bd-9f8c8ddb3a80.jpeg"
+                                    alt="Prachi's childhood memory 3">
+                            </div>
+                            <div class="slide-caption">
+                                <h3>Adorable Princess</h3>
+                                <p>The cutest little princess who grew into the most beautiful woman</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-image-container">
+                                <img src="https://image2url.com/r2/default/images/1770410450698-a468cea2-a94c-4abf-840b-5e914a53aa35.jpeg"
+                                    alt="Prachi's childhood memory 4">
+                            </div>
+                            <div class="slide-caption">
+                                <h3>Cherished Moments</h3>
+                                <p>Every moment of your journey is precious to me</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-image-container">
+                                <img src="https://image2url.com/r2/default/images/1770410466630-00cc0ff3-b5b4-44e8-ba78-46bd15403124.jpeg"
+                                    alt="Prachi's childhood memory 5">
+                            </div>
+                            <div class="slide-caption">
+                                <h3>Beautiful Soul</h3>
+                                <p>Your beautiful soul was evident even from the beginning</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+
+            <div class="text-center p-6 bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl">
+                <p class="text-gray-700 text-lg italic mb-4">
+                    "Seeing these precious moments from your childhood makes me feel even more connected to you.
+                    It's like I get to meet the little girl who would grow up to become the love of my life."
+                </p>
+                <p class="text-pink-600 font-semibold">
+                    Every stage of your life is beautiful to me, from these precious childhood moments to the amazing
+                    woman you are today.
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== NEW SECTION 1: Reasons Why I Love You ===== -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-list-heart mr-3 text-pink-500"></i>Reasons Why I Love You
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="reasons-container">
+                <div class="reason-item bg-gradient-to-r from-pink-100 to-red-100 p-4 rounded-lg transform hover:scale-105 transition"
+                    style="animation-delay: 0.1s">
+                    <span class="text-pink-600 font-bold mr-2">01.</span> Your beautiful smile that brightens my day
+                </div>
+                <div class="reason-item bg-gradient-to-r from-yellow-100 to-orange-100 p-4 rounded-lg transform hover:scale-105 transition"
+                    style="animation-delay: 0.2s">
+                    <span class="text-yellow-600 font-bold mr-2">02.</span> The way your eyes sparkle when you're happy
+                </div>
+                <div class="reason-item bg-gradient-to-r from-green-100 to-teal-100 p-4 rounded-lg transform hover:scale-105 transition"
+                    style="animation-delay: 0.3s">
+                    <span class="text-green-600 font-bold mr-2">03.</span> Your caring and loving nature
+                </div>
+                <div class="reason-item bg-gradient-to-r from-blue-100 to-indigo-100 p-4 rounded-lg transform hover:scale-105 transition"
+                    style="animation-delay: 0.4s">
+                    <span class="text-blue-600 font-bold mr-2">04.</span> How you make me feel special every day
+                </div>
+                <div class="reason-item bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg transform hover:scale-105 transition"
+                    style="animation-delay: 0.5s">
+                    <span class="text-purple-600 font-bold mr-2">05.</span> Your cute laugh that's music to my ears
+                </div>
+                <div class="reason-item bg-gradient-to-r from-red-100 to-pink-100 p-4 rounded-lg transform hover:scale-105 transition"
+                    style="animation-delay: 0.6s">
+                    <span class="text-red-600 font-bold mr-2">06.</span> The way you understand me without words
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <button id="addReasonBtn"
+                    class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">
+                    <i class="fas fa-plus mr-2"></i>Show Another Reason
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== NEW SECTION 2: Virtual Gift Box ===== -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-gift mr-3 text-pink-500"></i>Virtual Gift Box
+            </h2>
+
+            <div class="gift-box-container text-center cursor-pointer" id="giftBox">
+                <div class="relative inline-block gift-box" id="giftIcon">
+                    <div class="text-8xl animate-bounce">🎁</div>
+                    <div
+                        class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full text-white text-xs flex items-center justify-center animate-pulse">
+                        !</div>
+                </div>
+                <p class="mt-4 text-gray-600">Click to open your surprise!</p>
+            </div>
+
+            <div id="giftContent" class="hidden mt-8">
+                <div class="bg-gradient-to-r from-purple-100 to-pink-100 p-8 rounded-xl text-center">
+                    <i class="fas fa-crown text-5xl text-yellow-500 mb-4 floating"></i>
+                    <h3 class="text-3xl dancing-font mb-4 text-purple-800">You're My Queen! 👑</h3>
+                    <p class="text-gray-700 text-lg mb-4">This virtual crown is for the most special person in my life!
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <i class="fas fa-heart text-red-500 text-2xl floating"></i>
+                        <i class="fas fa-heart text-pink-500 text-2xl floating" style="animation-delay: 0.2s"></i>
+                        <i class="fas fa-heart text-red-500 text-2xl floating" style="animation-delay: 0.4s"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== NEW SECTION 3: Our Love Timeline ===== -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-timeline mr-3 text-pink-500"></i>Our Love Timeline
+            </h2>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div
+                    class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-pink-300 to-red-300 hidden md:block">
+                </div>
+
+                <!-- Timeline events -->
+                <div class="space-y-12">
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-5/12 text-center md:text-right md:pr-8 mb-4 md:mb-0">
+                            <h3 class="font-bold text-pink-600 text-xl dancing-font">First Met</h3>
+                            <p class="text-gray-600">The day everything changed forever</p>
+                            <p class="text-sm text-gray-500 mt-1">A moment I'll never forget</p>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center relative">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left md:pl-8">
+                            <i class="fas fa-heart text-pink-500 text-3xl floating"></i>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-5/12 text-center md:text-right md:pr-8 mb-4 md:mb-0 md:order-1">
+                            <i class="fas fa-kiss-wink-heart text-pink-500 text-3xl floating"></i>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center relative md:order-2">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left md:pl-8 md:order-3">
+                            <h3 class="font-bold text-pink-600 text-xl dancing-font">First "I Love You"</h3>
+                            <p class="text-gray-600">The words that changed everything</p>
+                            <p class="text-sm text-gray-500 mt-1">My heart knew it was you</p>
+                        </div>
+                    </div>
+
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-5/12 text-center md:text-right md:pr-8 mb-4 md:mb-0">
+                            <h3 class="font-bold text-pink-600 text-xl dancing-font">Our First Anniversary</h3>
+                            <p class="text-gray-600">Celebrating our beautiful journey</p>
+                            <p class="text-sm text-gray-500 mt-1">7th March 2026</p>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center relative">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left md:pl-8">
+                            <i class="fas fa-calendar-heart text-pink-500 text-3xl floating"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== NEW SECTION 4: Love Meter ===== -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-heart-pulse mr-3 text-pink-500"></i>Love Meter
+            </h2>
+
+            <div class="max-w-md mx-auto">
+                <div class="love-meter mb-4" id="loveMeter">
+                    <div class="h-full bg-gradient-to-r from-pink-400 to-red-500 rounded-full" style="width: 100%">
+                    </div>
+                </div>
+                <p class="text-center text-gray-700">
+                    <span class="font-bold text-pink-600 text-2xl dancing-font">INFINITY%</span>
+                </p>
+                <p class="text-center text-gray-600 mt-2">My love for you has no limit!</p>
+                <div class="text-center mt-4">
+                    <i class="fas fa-infinity text-5xl text-pink-500 floating"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+            <!-- Love letter -->
+            <div class="message-box p-6 md:p-8">
+                <div class="flex items-center mb-6">
+                    <div class="rose mr-4"></div>
+                    <h2 class="dancing-font text-3xl text-gray-800">My Love Letter</h2>
+                </div>
+
+                <div class="love-letter relative w-full h-64 md:h-72 cursor-pointer" id="loveLetter">
+                    <!-- Front of the letter (initially visible) -->
+                    <div
+                        class="love-letter-front absolute inset-0 bg-gradient-to-r from-pink-50 to-red-50 border-2 border-pink-200 rounded-lg p-6 shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gradient-to-br from-pink-500 to-red-500 p-3 rounded-full mr-4 shadow-lg">
+                                <i class="fas fa-heart text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">To My Dearest Prachi,</h3>
+                                <p class="text-gray-600">Click to open this letter</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-8">
+                            <p class="text-gray-500">
+                                <i class="fas fa-envelope-open-text text-4xl text-pink-400 floating"></i>
+                            </p>
+                            <p class="text-gray-500 mt-2">A message from my heart</p>
+                        </div>
+                    </div>
+
+                    <!-- Back of the letter (initially hidden) -->
+                    <div
+                        class="love-letter-back absolute inset-0 bg-gradient-to-r from-pink-100 to-red-100 border-2 border-pink-300 rounded-lg p-6 shadow-lg">
+                        <div class="h-full overflow-y-auto pr-2">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 dancing-font">My Dearest Prachi,</h3>
+                            <p class="text-gray-700 mb-3">
+                                Every moment with you feels like a beautiful dream that I never want to wake up from.
+                                Your smile brightens my darkest days, and your love fills my heart with endless joy.
+                            </p>
+                            <p class="text-gray-700 mb-3">
+                                When I look at our pictures together, I'm reminded of how incredibly lucky I am to have
+                                you in my life. You're not just my girlfriend; you're my best friend, my inspiration,
+                                and my greatest blessing.
+                            </p>
+                            <p class="text-gray-700 mb-3">
+                                I created this website to show you how much you mean to me. No matter where life takes
+                                us, I promise to always cherish you, support you, and love you more with each passing
+                                day.
+                            </p>
+                            <p class="text-gray-700 font-bold mt-6">
+                                Forever yours,<br>
+                                <span class="dancing-font text-2xl text-pink-600">With all my love</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center text-gray-500 mt-4 love-letter-instruction">
+                    <i class="fas fa-hand-point-up mr-2"></i> Click the letter to open it!
+                </p>
+            </div>
+
+         
+
+<!-- Add this after the love letter section -->
+<div class="message-box p-6 md:p-8 mb-8">
+    <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+        <i class="fas fa-video mr-3 text-pink-500"></i>the Most beautiful Girl I ever Seen 
+    </h2>
+
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+        <video id="loveVideo" class="w-full h-auto" autoplay loop muted playsinline>
+            <source src="https://image2url.com/r2/default/videos/1771004256773-680cd813-9a6a-41a0-8fe9-33f8e50d522a.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <p class="text-center text-gray-600 mt-4 italic">
+        "I could watch you forever..." ❤️
+    </p>
+</div>
+
+
+
+<!-- Add CSS -->
+<style>
+    .floating-gallery {
+        perspective: 1000px;
+    }
+
+    .gallery-item {
+        transition: all 0.5s ease;
+        transform-style: preserve-3d;
+    }
+
+    .gallery-item:hover {
+        transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+        box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<!-- Gallery HTML -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 floating-gallery">
+    <div class="gallery-item relative h-64 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://image2url.com/r2/default/images/1771004791640-56a4bbb2-7956-40ce-9c19-4e78ce3b9508.jpeg" class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black p-4">
+            <p class="text-white dancing-font">Beautiful Smile</p>
+        </div>
+    </div>
+    <!-- Add more -->
+</div>
+<!-- Gallery HTML -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 floating-gallery">
+    <div class="gallery-item relative h-64 rounded-xl overflow-hidden shadow-xl">
+        <img src="https://image2url.com/r2/default/images/1771004922874-98503812-a8cc-4a25-a1a1-cecf89c864ce.jpeg"
+            class="w-full h-full object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black p-4">
+            <p class="text-white dancing-font">Beautiful Smile</p>
+        </div>
+    </div>
+    <!-- Add more -->
+</div>
+
+<div class="message-box p-6 md:p-8 mb-8">
+    <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+        <i class="fas fa-calculator mr-3 text-pink-500"></i>Love Calculator
+    </h2>
+
+    <div class="text-center">
+        <input type="text" id="name1" value="Your Name" class="w-full p-3 border rounded-lg mb-3">
+        <input type="text" id="name2" value="Prachi" class="w-full p-3 border rounded-lg mb-3">
+
+        <button onclick="calculateLove()" class="bg-pink-500 text-white px-8 py-3 rounded-full hover:bg-pink-600">
+            Calculate Love ❤️
+        </button>
+
+        <div id="loveResult" class="mt-6 hidden">
+            <div class="text-6xl text-pink-500" id="lovePercentage">100%</div>
+            <p id="loveMessage" class="text-gray-600 mt-2"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateLove() {
+        const name1 = document.getElementById('name1').value;
+        const name2 = document.getElementById('name2').value;
+
+        // Fixed 100% for Prachi 😉
+        const percentage = 100;
+
+        document.getElementById('lovePercentage').textContent = percentage + '%';
+        document.getElementById('loveMessage').textContent =
+            `${name1} & ${name2} = Perfect Match! ❤️`;
+        document.getElementById('loveResult').classList.remove('hidden');
+
+        createHearts(20);
+    }
+</script>
+
+<div class="message-box p-6 md:p-8 mb-8">
+    <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+        <i class="fas fa-puzzle-piece mr-3 text-pink-500"></i>Love Puzzle
+    </h2>
+
+    <div class="grid grid-cols-3 gap-2 max-w-md mx-auto" id="puzzle">
+        <!-- Puzzle pieces will appear here -->
+    </div>
+
+    <div id="puzzleMessage" class="hidden text-center mt-6 p-6 bg-pink-100 rounded-lg">
+        <h3 class="text-2xl dancing-font text-pink-600">I LOVE YOU PRACHI! ❤️</h3>
+    </div>
+</div>
+
+<script>
+    let puzzlePieces = ['❤️', '💕', '💖', '💗', '💓', '💘', '💝', '💞', '💟'];
+    let shuffled = [...puzzlePieces].sort(() => Math.random() - 0.5);
+
+    function displayPuzzle() {
+        const puzzleDiv = document.getElementById('puzzle');
+        puzzleDiv.innerHTML = '';
+        shuffled.forEach((piece, index) => {
+            puzzleDiv.innerHTML += `
+            <div onclick="checkPuzzle(${index})" 
+                class="bg-pink-100 h-24 flex items-center justify-center text-4xl rounded-lg cursor-pointer hover:bg-pink-200">
+                ${piece}
+            </div>
+        `;
+        });
+    }
+
+    function checkPuzzle(index) {
+        // Puzzle logic here
+        // When complete, show message
+        document.getElementById('puzzleMessage').classList.remove('hidden');
+        createHearts(30);
+    }
+
+    displayPuzzle();
+</script>
+
+<div class="message-box p-6 md:p-8 mb-8">
+    <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+        <i class="fas fa-star mr-3 text-pink-500"></i>Our Love Constellation
+    </h2>
+
+    <canvas id="constellation" class="w-full h-64 bg-gray-900 rounded-lg"></canvas>
+
+    <p class="text-center text-gray-600 mt-4">
+        Every star represents a memory with you ✨
+    </p>
+</div>
+
+<script>
+    const canvas = document.getElementById('constellation');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    // Draw stars
+    for (let i = 0; i < 50; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+
+        // Connect some stars
+        if (i % 5 === 0) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + 20, y - 20);
+            ctx.strokeStyle = 'rgba(255,192,203,0.3)';
+            ctx.stroke();
+        }
+    }
+
+    // Draw heart shape in stars
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, canvas.height / 3);
+    ctx.bezierCurveTo(canvas.width / 2.5, canvas.height / 4, canvas.width / 3, canvas.height / 2, canvas.width / 2, canvas.height / 1.8);
+    ctx.bezierCurveTo(canvas.width / 1.5, canvas.height / 2, canvas.width / 1.8, canvas.height / 4, canvas.width / 2, canvas.height / 3);
+    ctx.strokeStyle = 'pink';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+</script>
+
+<button onclick="randomSurprise()"
+    class="fixed bottom-4 right-4 bg-gradient-to-r from-pink-500 to-red-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
+    <i class="fas fa-magic text-2xl"></i>
+</button>
+
+<script>
+    function randomSurprise() {
+        const surprises = [
+            () => createRosePetals(50),
+            () => createFireworks(30),
+            () => showTemporaryMessage("You're the best thing that ever happened to me!", "pink"),
+            () => createHearts(25),
+            () => document.querySelector('.love-letter').classList.toggle('open')
+        ];
+
+        const random = Math.floor(Math.random() * surprises.length);
+        surprises[random]();
+    }
+</script>
+            <!-- Surprise box -->
+            <div class="message-box p-6 md:p-8">
+                <h2 class="dancing-font text-3xl text-gray-800 mb-6 text-center">
+                    <i class="fas fa-gift mr-3 text-pink-500"></i>Surprise Box
+                </h2>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <button id="roseBtn"
+                        class="bg-gradient-to-br from-pink-100 to-red-100 hover:from-pink-200 hover:to-red-200 text-pink-700 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+                        <i class="fas fa-spa text-2xl mb-2"></i>
+                        <p class="font-semibold">Roses for You</p>
+                    </button>
+
+                    <button id="fireworkBtn"
+                        class="bg-gradient-to-br from-yellow-100 to-orange-100 hover:from-yellow-200 hover:to-orange-200 text-yellow-700 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+                        <i class="fas fa-fire text-2xl mb-2"></i>
+                        <p class="font-semibold">Fireworks</p>
+                    </button>
+
+                    <button id="messageBtn"
+                        class="bg-gradient-to-br from-blue-100 to-indigo-100 hover:from-blue-200 hover:to-indigo-200 text-blue-700 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+                        <i class="fas fa-star text-2xl mb-2"></i>
+                        <p class="font-semibold">Secret Message</p>
+                    </button>
+
+                    <button id="musicBtn"
+                        class="bg-gradient-to-br from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 text-purple-700 py-4 rounded-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
+                        <i class="fas fa-music text-2xl mb-2"></i>
+                        <p class="font-semibold">Our Song</p>
+                    </button>
+                </div>
+
+                <div class="mt-8">
+                    <div id="secretMessage"
+                        class="secret-message bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl border-2 border-purple-200 shadow-inner">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3 dancing-font">
+                            <i class="fas fa-gem mr-2"></i> For Prachi Only
+                        </h3>
+                        <p class="text-purple-700">
+                            You are the most amazing person I've ever met. Every day with you is a gift, and I'm so
+                            grateful to have you in my life. No matter what happens, always remember how incredibly
+                            special and loved you are.
+                        </p>
+                        <div class="flex justify-center mt-6">
+                            <i class="fas fa-heart text-red-500 text-2xl mx-2 floating"></i>
+                            <i class="fas fa-heart text-pink-500 text-2xl mx-2 floating"
+                                style="animation-delay: 0.2s"></i>
+                            <i class="fas fa-heart text-red-500 text-2xl mx-2 floating"
+                                style="animation-delay: 0.4s"></i>
+                            <i class="fas fa-heart text-pink-500 text-2xl mx-2 floating"
+                                style="animation-delay: 0.6s"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory lane -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-memory mr-3 text-pink-500"></i>Our Special Memories
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div
+                    class="bg-gradient-to-br from-pink-100 to-red-100 p-5 rounded-xl text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="text-4xl text-pink-600 mb-3">
+                        <i class="fas fa-calendar-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg">First Meet</h3>
+                    <p class="text-sm text-gray-600 mt-2">The day my life changed forever</p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-yellow-100 to-orange-100 p-5 rounded-xl text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="text-4xl text-yellow-600 mb-3">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg">Endless Laughter</h3>
+                    <p class="text-sm text-gray-600 mt-2">You bring joy everywhere you go</p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-blue-100 to-cyan-100 p-5 rounded-xl text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="text-4xl text-blue-600 mb-3">
+                        <i class="fas fa-hands-holding-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg">Your Support</h3>
+                    <p class="text-sm text-gray-600 mt-2">Always there for me, always caring</p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-purple-100 to-pink-100 p-5 rounded-xl text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <div class="text-4xl text-purple-600 mb-3">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg">Future Dreams</h3>
+                    <p class="text-sm text-gray-600 mt-2">So much to look forward to with you</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Countdown to Our Anniversary -->
+        <div class="message-box p-6 md:p-8 mb-8 md:mb-12" id="countdown-section">
+            <h2 class="dancing-font text-3xl md:text-4xl text-gray-800 mb-8 text-center">
+                <i class="fas fa-heart-circle-check mr-3 text-pink-500"></i>Countdown to Our Anniversary
+            </h2>
+
+            <div class="text-center mb-6">
+                <p class="text-pink-600 text-lg font-semibold">
+                    <i class="fas fa-calendar-heart mr-2"></i> 7th March 2026
+                </p>
+                <p class="text-gray-600 mt-1">The day our love story began continues...</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-8">
+                <div
+                    class="countdown-box bg-gradient-to-b from-pink-500 to-red-500 text-white p-4 md:p-6 rounded-2xl text-center min-w-[90px] shadow-lg">
+                    <div id="days" class="text-3xl md:text-4xl font-bold">00</div>
+                    <div class="text-sm md:text-base mt-1">Days</div>
+                </div>
+
+                <div
+                    class="countdown-box bg-gradient-to-b from-pink-500 to-red-500 text-white p-4 md:p-6 rounded-2xl text-center min-w-[90px] shadow-lg">
+                    <div id="hours" class="text-3xl md:text-4xl font-bold">00</div>
+                    <div class="text-sm md:text-base mt-1">Hours</div>
+                </div>
+
+                <div
+                    class="countdown-box bg-gradient-to-b from-pink-500 to-red-500 text-white p-4 md:p-6 rounded-2xl text-center min-w-[90px] shadow-lg">
+                    <div id="minutes" class="text-3xl md:text-4xl font-bold">00</div>
+                    <div class="text-sm md:text-base mt-1">Minutes</div>
+                </div>
+
+                <div
+                    class="countdown-box bg-gradient-to-b from-pink-500 to-red-500 text-white p-4 md:p-6 rounded-2xl text-center min-w-[90px] shadow-lg">
+                    <div id="seconds" class="text-3xl md:text-4xl font-bold">00</div>
+                    <div class="text-sm md:text-base mt-1">Seconds</div>
+                </div>
+            </div>
+
+            <div id="countdownMessage" class="text-center">
+                <p class="text-gray-600 text-lg">
+                    Counting every moment until we celebrate our anniversary!
+                </p>
+            </div>
+
+            <!-- Progress bar for the countdown -->
+            <div class="mt-6">
+                <div class="text-center text-gray-600 mb-2 text-sm">
+                    Time until our special day...
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="countdownProgress" class="h-full bg-gradient-to-r from-pink-500 to-red-500 rounded-full"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 mb-6">
+            <div class="message-box p-6 max-w-2xl mx-auto">
+                <p class="text-gray-700 text-lg">
+                    Made with <i class="fas fa-heart heart mx-1"></i> for the most amazing person - <span
+                        class="dancing-font text-2xl text-pink-600">Prachi</span>
+                </p>
+                <p class="text-gray-500 text-sm md:text-base mt-3">
+                    This website is a token of my love for you. Always remember how special you are!
+                </p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <i class="fas fa-heart text-red-500 text-xl"></i>
+                    <i class="fas fa-star text-yellow-500 text-xl"></i>
+                    <i class="fas fa-moon text-purple-500 text-xl"></i>
+                    <i class="fas fa-sun text-orange-500 text-xl"></i>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio element for music -->
+    <audio id="loveSong" loop>
+        <source src="Paresh Pahuja - Dooron Dooron (Live from The Voice Notes Concert).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // ===== DOM Elements =====
+        const loveLetter = document.getElementById('loveLetter');
+        const roseBtn = document.getElementById('roseBtn');
+        const fireworkBtn = document.getElementById('fireworkBtn');
+        const messageBtn = document.getElementById('messageBtn');
+        const musicBtn = document.getElementById('musicBtn');
+        const secretMessage = document.getElementById('secretMessage');
+        const petalsContainer = document.getElementById('petals-container');
+        const fireworksContainer = document.getElementById('fireworks-container');
+        const loveSong = document.getElementById('loveSong');
+        const cuddleBtn = document.getElementById('cuddleRequest');
+        const customCursor = document.getElementById('customCursor');
+        const giftBox = document.getElementById('giftBox');
+        const giftContent = document.getElementById('giftContent');
+        const addReasonBtn = document.getElementById('addReasonBtn');
+
+        // ===== Anniversary Countdown Timer =====
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const countdownMessage = document.getElementById('countdownMessage');
+        const countdownProgress = document.getElementById('countdownProgress');
+
+        const anniversaryDate = new Date('March 7, 2026 00:00:00').getTime();
+        let totalDuration = null;
+        let anniversaryCelebrated = false;
+
+        // ===== Initialize Swiper =====
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            speed: 800,
+            effect: 'slide',
+            grabCursor: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: { slidesPerView: 1, spaceBetween: 10 },
+                768: { slidesPerView: 1, spaceBetween: 20 },
+                1024: { slidesPerView: 1, spaceBetween: 30 }
+            }
+        });
+
+        // ===== Love Letter Interaction =====
+        let letterOpened = false;
+        loveLetter.addEventListener('click', () => {
+            letterOpened = !letterOpened;
+            loveLetter.classList.toggle('open');
+
+            if (letterOpened) {
+                createRosePetals(15);
+                showTemporaryMessage("Opening my heart to you, my love!", "pink");
+                document.querySelector('.love-letter-instruction').textContent = "Click again to close the letter!";
+            } else {
+                showTemporaryMessage("Close the letter to read again anytime!", "blue");
+                document.querySelector('.love-letter-instruction').textContent = "Click the letter to open it!";
+            }
+        });
+
+        // ===== Rose Petals Animation =====
+        roseBtn.addEventListener('click', () => {
+            createRosePetals(80);
+            showTemporaryMessage("For my beautiful Prachi - these roses are just like you, beautiful and special!", "pink");
+            createHearts(20);
+        });
+
+        function createRosePetals(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const petal = document.createElement('div');
+                    petal.classList.add('petal');
+
+                    const startX = Math.random() * window.innerWidth;
+                    petal.style.left = `${startX}px`;
+                    petal.style.top = `-50px`;
+
+                    const size = Math.random() * 20 + 10;
+                    petal.style.width = `${size}px`;
+                    petal.style.height = `${size}px`;
+
+                    const hue = Math.floor(Math.random() * 30) + 320;
+                    petal.style.backgroundColor = `hsl(${hue}, 90%, 70%)`;
+
+                    const duration = Math.random() * 3 + 3;
+                    petal.style.animationDuration = `${duration}s`;
+
+                    const delay = Math.random() * 2;
+                    petal.style.animationDelay = `${delay}s`;
+
+                    petalsContainer.appendChild(petal);
+
+                    setTimeout(() => {
+                        petal.remove();
+                    }, (duration + delay) * 1000);
+                }, i * 30);
+            }
+        }
+
+        function createHearts(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    heart.classList.add('absolute', 'text-red-500', 'text-xl', 'md:text-2xl');
+
+                    const startX = Math.random() * window.innerWidth;
+                    heart.style.left = `${startX}px`;
+                    heart.style.bottom = `-30px`;
+
+                    const duration = Math.random() * 2 + 2;
+                    heart.style.animation = `floating ${duration}s ease-in-out forwards`;
+
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, duration * 1000);
+                }, i * 100);
+            }
+        }
+
+        // ===== Fireworks Animation =====
+        fireworkBtn.addEventListener('click', () => {
+            createFireworks(30);
+            showTemporaryMessage("You light up my life like fireworks in the sky!", "yellow");
+        });
+
+        function createFireworks(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.classList.add('firework');
+
+                    const posX = Math.random() * window.innerWidth;
+                    const posY = Math.random() * (window.innerHeight - 200) + 200;
+                    firework.style.left = `${posX}px`;
+                    firework.style.top = `${posY}px`;
+
+                    const colors = ['#ffdd59', '#ff9ff3', '#54a0ff', '#ff6b6b', '#1dd1a1', '#ff9f43'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+
+                    const size = Math.random() * 10 + 5;
+                    firework.style.width = `${size}px`;
+                    firework.style.height = `${size}px`;
+
+                    fireworksContainer.appendChild(firework);
+
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 1500);
+                }, i * 80);
+            }
+        }
+
+        // ===== Secret Message Reveal =====
+        messageBtn.addEventListener('click', () => {
+            secretMessage.classList.toggle('show');
+
+            if (secretMessage.classList.contains('show')) {
+                createFloatingHearts(15);
+                showTemporaryMessage("This special message is just for you, my love!", "purple");
+            }
+        });
+
+        function createFloatingHearts(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    heart.classList.add('absolute', 'text-pink-500', 'text-xl', 'md:text-2xl');
+
+                    const startX = Math.random() * window.innerWidth;
+                    heart.style.left = `${startX}px`;
+                    heart.style.bottom = `-50px`;
+
+                    const duration = Math.random() * 3 + 2;
+                    heart.style.animation = `floating ${duration}s ease-in-out forwards`;
+
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, duration * 1000);
+                }, i * 150);
+            }
+        }
+
+        // ===== Music Player =====
+        let musicPlaying = false;
+        musicBtn.addEventListener('click', () => {
+            if (musicPlaying) {
+                loveSong.pause();
+                musicBtn.innerHTML = '<i class="fas fa-music text-2xl mb-2"></i><p class="font-semibold">Play Our Song</p>';
+                showTemporaryMessage("Music paused. Click again to play our special song!", "purple");
+            } else {
+                loveSong.play().catch(() => {
+                    showTemporaryMessage("Click anywhere to enable music!", "pink");
+                });
+                musicBtn.innerHTML = '<i class="fas fa-pause text-2xl mb-2"></i><p class="font-semibold">Pause Song</p>';
+                showTemporaryMessage("This song reminds me of you, my love!", "purple");
+                createMusicVisualizer();
+            }
+            musicPlaying = !musicPlaying;
+        });
+
+        function createMusicVisualizer() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const visual = document.createElement('div');
+                    visual.classList.add('absolute', 'rounded-full', 'bg-gradient-to-r', 'from-pink-400', 'to-purple-400', 'opacity-30');
+
+                    visual.style.left = '50%';
+                    visual.style.top = '50%';
+                    visual.style.transform = 'translate(-50%, -50%)';
+                    visual.style.width = '10px';
+                    visual.style.height = '10px';
+
+                    visual.style.animation = `pulse 2s ease-out ${i * 0.2}s`;
+                    visual.style.zIndex = '1';
+
+                    document.body.appendChild(visual);
+
+                    setTimeout(() => {
+                        visual.remove();
+                    }, 2000);
+                }, i * 200);
+            }
+        }
+
+        // ===== Cuddle Request Button =====
+        cuddleBtn.addEventListener('click', () => {
+            createFloatingHearts(30);
+            showTemporaryMessage("Sending you the biggest virtual cuddle! 🤗", "pink");
+
+            // Create a special cuddle message
+            const cuddleMsg = document.createElement('div');
+            cuddleMsg.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-2xl shadow-2xl z-[99999] text-center';
+            cuddleMsg.innerHTML = `
+                <i class="fas fa-heart text-6xl text-pink-500 floating mb-4"></i>
+                <h3 class="text-3xl dancing-font text-pink-600 mb-2">Virtual Cuddle!</h3>
+                <p class="text-gray-700 text-lg">Sending you warm hugs and love! 🤗</p>
+                <button class="mt-4 bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600" onclick="this.parentElement.remove()">Close</button>
+            `;
+            document.body.appendChild(cuddleMsg);
+
+            setTimeout(() => {
+                if (cuddleMsg.parentNode) cuddleMsg.remove();
+            }, 5000);
+        });
+
+        // ===== Custom Cursor =====
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                customCursor.style.display = 'block';
+                customCursor.style.left = e.clientX + 'px';
+                customCursor.style.top = e.clientY + 'px';
+            });
+
+            document.addEventListener('mouseleave', () => {
+                customCursor.style.display = 'none';
+            });
+        }
+
+        // ===== Virtual Gift Box =====
+        giftBox.addEventListener('click', () => {
+            const giftIcon = document.getElementById('giftIcon');
+            giftIcon.classList.add('open');
+
+            setTimeout(() => {
+                giftContent.classList.remove('hidden');
+                giftIcon.innerHTML = '<div class="text-8xl">🎉</div>';
+                giftIcon.querySelector('.absolute').remove();
+                showTemporaryMessage("Surprise! You're my queen! 👑", "purple");
+                createFloatingHearts(25);
+            }, 500);
+        });
+
+        // ===== Add More Reasons =====
+        const reasons = [
+            "Your cute little nose",
+            "The way you say my name",
+            "Your caring nature",
+            "How you always understand me",
+            "Your beautiful soul",
+            "The way you make me laugh",
+            "Your amazing cooking",
+            "How you support my dreams",
+            "Your beautiful eyes",
+            "The way you hold my hand",
+            "Your sweet voice",
+            "How you always believe in me"
+        ];
+
+        let reasonCount = 6;
+
+        addReasonBtn.addEventListener('click', () => {
+            if (reasonCount < reasons.length) {
+                const container = document.getElementById('reasons-container');
+                const newReason = document.createElement('div');
+                newReason.className = `reason-item bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg transform hover:scale-105 transition`;
+                newReason.style.animationDelay = '0.1s';
+
+                const reasonNumber = (reasonCount + 1).toString().padStart(2, '0');
+                newReason.innerHTML = `<span class="text-purple-600 font-bold mr-2">${reasonNumber}.</span> ${reasons[reasonCount]}`;
+
+                container.appendChild(newReason);
+                reasonCount++;
+
+                if (reasonCount >= reasons.length) {
+                    addReasonBtn.disabled = true;
+                    addReasonBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    addReasonBtn.innerHTML = '<i class="fas fa-check mr-2"></i>All Reasons Shown!';
+                }
+
+                showTemporaryMessage("Another reason why I love you! ❤️", "pink");
+            }
+        });
+
+        // ===== Countdown Timer =====
+        function updateAnniversaryCountdown() {
+            const now = new Date().getTime();
+            const distance = anniversaryDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.textContent = days.toString().padStart(2, '0');
+            hoursEl.textContent = hours.toString().padStart(2, '0');
+            minutesEl.textContent = minutes.toString().padStart(2, '0');
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+
+            if (totalDuration === null) {
+                const startDate = new Date().getTime();
+                totalDuration = anniversaryDate - startDate;
+            }
+
+            if (totalDuration > 0) {
+                const progressPercentage = 100 - ((distance / totalDuration) * 100);
+                countdownProgress.style.width = `${Math.min(progressPercentage, 100)}%`;
+            }
+
+            document.querySelectorAll('.countdown-box').forEach(box => {
+                box.classList.add('animate-pulse');
+                setTimeout(() => {
+                    box.classList.remove('animate-pulse');
+                }, 500);
+            });
+
+            if (distance < 0) {
+                daysEl.textContent = "00";
+                hoursEl.textContent = "00";
+                minutesEl.textContent = "00";
+                secondsEl.textContent = "00";
+
+                countdownMessage.innerHTML = `
+                    <p class="text-2xl text-pink-600 font-bold dancing-font mb-2">
+                        <i class="fas fa-heart-circle-check mr-2"></i>Happy Anniversary!
+                    </p>
+                    <p class="text-gray-700">
+                        Our special day has arrived! Let's celebrate our love! 🎉
+                    </p>
+                `;
+
+                countdownProgress.style.width = "100%";
+
+                if (!anniversaryCelebrated) {
+                    celebrateAnniversaryInSection();
+                    anniversaryCelebrated = true;
+                }
+
+                return;
+            } else if (distance < 86400000) {
+                countdownMessage.innerHTML = `
+                    <p class="text-xl text-red-500 font-bold mb-1">
+                        <i class="fas fa-heart-pulse mr-2"></i>Less than 1 day to go!
+                    </p>
+                    <p class="text-gray-600">Our anniversary is almost here! ❤️</p>
+                `;
+            } else if (distance < 604800000) {
+                countdownMessage.innerHTML = `
+                    <p class="text-lg text-pink-600 font-bold mb-1">
+                        <i class="fas fa-calendar-star mr-2"></i>Less than a week to go!
+                    </p>
+                    <p class="text-gray-600">Getting closer to our special day! 💕</p>
+                `;
+            }
+        }
+
+        function celebrateAnniversaryInSection() {
+            showTemporaryMessage("🎉 Happy Anniversary, Prachi! 🎉 I love you more than words can express!", "pink");
+
+            const countdownSection = document.getElementById('countdown-section');
+            if (!countdownSection) return;
+
+            countdownSection.style.position = 'relative';
+            countdownSection.style.overflow = 'hidden';
+
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'anniversary-sparkle';
+
+                    const rect = countdownSection.getBoundingClientRect();
+                    const x = Math.random() * rect.width;
+                    const y = Math.random() * rect.height;
+
+                    sparkle.style.left = `${x}px`;
+                    sparkle.style.top = `${y}px`;
+                    sparkle.style.animation = `sparkle-fall ${1 + Math.random()}s ease-out forwards`;
+
+                    countdownSection.appendChild(sparkle);
+
+                    setTimeout(() => {
+                        if (sparkle.parentNode) sparkle.remove();
+                    }, 1500);
+                }, i * 100);
+            }
+        }
+
+        // ===== Show Temporary Message =====
+        function showTemporaryMessage(message, color) {
+            const existingMessage = document.querySelector('.temp-message');
+            if (existingMessage) existingMessage.remove();
+
+            const messageEl = document.createElement('div');
+            messageEl.classList.add('temp-message', 'fixed', 'top-4', 'md:top-8', 'left-1/2', 'transform', '-translate-x-1/2', 'z-[99999]', 'px-6', 'py-3', 'rounded-full', 'shadow-xl', 'text-white', 'font-semibold', 'text-sm', 'md:text-base');
+
+            if (color === 'pink') {
+                messageEl.classList.add('bg-gradient-to-r', 'from-pink-500', 'to-red-500');
+            } else if (color === 'yellow') {
+                messageEl.classList.add('bg-gradient-to-r', 'from-yellow-500', 'to-orange-500');
+            } else if (color === 'purple') {
+                messageEl.classList.add('bg-gradient-to-r', 'from-purple-500', 'to-pink-500');
+            } else {
+                messageEl.classList.add('bg-gradient-to-r', 'from-blue-500', 'to-teal-500');
+            }
+
+            messageEl.textContent = message;
+            document.body.appendChild(messageEl);
+
+            setTimeout(() => {
+                messageEl.style.opacity = '0';
+                messageEl.style.transition = 'opacity 0.5s';
+                setTimeout(() => {
+                    messageEl.remove();
+                }, 500);
+            }, 3000);
+        }
+
+        // ===== Daily Love Note =====
+        const loveNotes = [
+            "You're the most beautiful person I know, inside and out.",
+            "Every day with you feels like a blessing.",
+            "Your smile lights up my entire world.",
+            "I fall in love with you more every single day.",
+            "You're my today, tomorrow, and always.",
+            "Thinking of you makes even the worst days better.",
+            "You're the reason I believe in true love.",
+            "My heart beats only for you."
+        ];
+
+        function showDailyLoveNote() {
+            const today = new Date().getDate();
+            const noteIndex = today % loveNotes.length;
+
+            const noteElement = document.createElement('div');
+            noteElement.className = 'daily-note';
+            noteElement.innerHTML = `
+                <i class="fas fa-heart text-pink-500 absolute -top-2 -left-2"></i>
+                <p class="text-gray-700 italic">"${loveNotes[noteIndex]}"</p>
+                <p class="text-right mt-2 text-pink-600 text-sm">- Your Love ❤️</p>
+            `;
+            document.body.appendChild(noteElement);
+
+            setTimeout(() => {
+                noteElement.remove();
+            }, 8000);
+        }
+
+        // ===== Time-Based Message =====
+        function showTimeBasedMessage() {
+            const hour = new Date().getHours();
+            let message = "";
+            let icon = "";
+
+            if (hour >= 5 && hour < 12) {
+                message = "Good Morning Beautiful! Hope you have an amazing day! ☀️";
+                icon = "fa-sun";
+            } else if (hour >= 12 && hour < 17) {
+                message = "Good Afternoon, my love! Thinking of you! 🌞";
+                icon = "fa-cloud-sun";
+            } else if (hour >= 17 && hour < 21) {
+                message = "Good Evening, Prachi! You're the best part of my day! 🌆";
+                icon = "fa-moon";
+            } else {
+                message = "Sweet dreams, my love! Can't wait to see you tomorrow! 🌙";
+                icon = "fa-star";
+            }
+
+            const messageEl = document.createElement('div');
+            messageEl.className = 'time-message';
+            messageEl.innerHTML = `
+                <i class="fas ${icon} text-pink-500 text-xl mb-2"></i>
+                <p class="text-gray-700">${message}</p>
+            `;
+            document.body.appendChild(messageEl);
+
+            setTimeout(() => {
+                messageEl.remove();
+            }, 10000);
+        }
+
+        // ===== Add Comments to Photos =====
+        function addCommentsToPhotos() {
+            const comments = [
+                "My favorite picture! 💕",
+                "You're so beautiful! 😍",
+                "Can't stop staring! 👀",
+                "Perfect in every way! ✨"
+            ];
+
+            document.querySelectorAll('.photo-item').forEach((photo, index) => {
+                const comment = document.createElement('div');
+                comment.className = 'absolute top-2 left-2 bg-white/90 backdrop-blur-sm p-2 rounded-lg shadow-md text-sm z-10';
+                comment.textContent = comments[index % comments.length];
+                photo.appendChild(comment);
+            });
+        }
+
+        // ===== Responsive Handler =====
+        function handleResize() {
+            const isMobile = window.innerWidth < 768;
+            const photoItems = document.querySelectorAll('.photo-item');
+
+            photoItems.forEach(item => {
+                if (isMobile) {
+                    item.style.height = '250px';
+                } else {
+                    item.style.height = '320px';
+                }
+            });
+
+            const slider = document.querySelector('.childhood-slider');
+            if (slider) {
+                if (window.innerWidth < 480) {
+                    slider.style.height = '300px';
+                } else if (window.innerWidth < 768) {
+                    slider.style.height = '350px';
+                } else {
+                    slider.style.height = '500px';
+                }
+            }
+
+            // Hide custom cursor on mobile
+            if (window.innerWidth <= 768) {
+                customCursor.style.display = 'none';
+            }
+        }
+
+        // ===== Add CSS Animations =====
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { opacity: 1; }
+                50% { opacity: 0.7; }
+                100% { opacity: 1; }
+            }
+            
+            .animate-pulse {
+                animation: pulse 0.5s ease-in-out;
+            }
+            
+            #countdownProgress {
+                transition: width 1s ease-in-out;
+            }
+            
+            .reason-item {
+                animation: fadeInUp 0.5s ease forwards;
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ===== Window Load Event =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                createRosePetals(15);
+                showTemporaryMessage("Welcome, Prachi! This is made with all my love for you.", "pink");
+                showDailyLoveNote();
+                showTimeBasedMessage();
+                addCommentsToPhotos();
+
+                // Auto-play music after 3 seconds
+                setTimeout(() => {
+                    if (!musicPlaying) {
+                        loveSong.play().then(() => {
+                            musicPlaying = true;
+                            musicBtn.innerHTML = '<i class="fas fa-pause text-2xl mb-2"></i><p class="font-semibold">Pause Song</p>';
+                        }).catch(() => {
+                            // Autoplay prevented - show message
+                            showTemporaryMessage("Click the music button to play our song!", "purple");
+                        });
+                    }
+                }, 3000);
+            }, 1000);
+        });
+
+        // ===== Page Title Dynamic =====
+        let originalTitle = document.title;
+        window.addEventListener('blur', () => {
+            document.title = "Come back Prachi! ❤️";
+        });
+
+        window.addEventListener('focus', () => {
+            document.title = originalTitle;
+        });
+
+        // ===== Initialize =====
+        updateAnniversaryCountdown();
+        setInterval(updateAnniversaryCountdown, 1000);
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+</body>
+
+</html>
